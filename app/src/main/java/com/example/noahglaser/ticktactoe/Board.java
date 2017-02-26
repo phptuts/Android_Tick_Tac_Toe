@@ -31,6 +31,32 @@ public class Board {
         return true;
     }
 
+    public void recreateBoard(Player[] players)
+    {
+        int counter = 0;
+        for (int y = 0; y < 3; y += 1) {
+            for (int x = 0; x < 3; x += 1) {
+                this.spaces[x][y] = players[counter];
+                counter += 1;
+            }
+        }
+
+    }
+
+    public Player[] createArrayOfPlayerSpaces()
+    {
+        int counter = 0;
+        Player[] players = new Player[9];
+        for (int y = 0; y < 3; y += 1) {
+            for (int x = 0; x < 3; x += 1) {
+                players[counter] = this.spaces[x][y];
+                counter += 1;
+            }
+        }
+
+        return players;
+    }
+
     /**
      * Takes a up a space
      * @param player
@@ -96,5 +122,14 @@ public class Board {
     private boolean playerHasDiagonalRow(Player player) {
         return (this.spaces[0][0] == player && this.spaces[1][1] == player && this.spaces[2][2] == player) ||
                 (this.spaces[2][0] == player && this.spaces[1][1] == player && this.spaces[0][2] == player);
+    }
+
+    /**
+     * Gets all the spaces
+     * @return
+     */
+    public Player[][] getSpaces()
+    {
+        return this.spaces;
     }
 }

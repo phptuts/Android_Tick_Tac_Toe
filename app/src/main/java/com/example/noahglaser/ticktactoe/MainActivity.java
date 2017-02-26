@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private Player player1;
 
@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.player1 = new Player(R.drawable.red);
-        this.player2 = new Player(R.drawable.yellow);
-        this.board = new Board();
 
         this.boardImage = (ImageView) findViewById(R.id.board);
 
@@ -58,6 +54,38 @@ public class MainActivity extends AppCompatActivity {
         this.pieces[0][2] = (ImageView) findViewById(R.id.connect7);
         this.pieces[1][2] = (ImageView) findViewById(R.id.connect8);
         this.pieces[2][2] = (ImageView) findViewById(R.id.connect9);
+
+        this.board = new Board();
+
+        if (savedInstanceState != null) {
+            player1 = savedInstanceState.getParcelable("player1");
+            player2 = savedInstanceState.getParcelable("player2");
+            Player[] spacesSaved = (Player[]) savedInstanceState.getParcelableArray("spaces");
+            this.board.recreateBoard(spacesSaved);
+            Player[][] spacesOnBoard = this.board.getSpaces();
+            for (int x = 0; x < 3; x += 1) {
+                for (int y = 0; y < 3; y += 1) {
+                    if (spacesOnBoard[x][y] != null) {
+                        this.pieces[x][y].setAlpha(1f);
+                        this.pieces[x][y].setImageResource(spacesOnBoard[x][y].getImageId());
+                    }
+                }
+            }
+        }
+        else {
+            this.player1 = new Player(R.drawable.red);
+            this.player2 = new Player(R.drawable.yellow);
+        }
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelableArray("spaces",this.board.createArrayOfPlayerSpaces());
+        outState.putParcelable("player1", this.player1);
+        outState.putParcelable("player2", this.player2);
     }
 
     /**
