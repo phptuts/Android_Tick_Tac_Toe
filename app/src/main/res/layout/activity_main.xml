@@ -18,92 +18,166 @@
         android:cropToPadding="false"
         android:scaleType="fitXY" />
 
+    <android.support.constraint.Guideline
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_1"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="171dp"
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintGuide_percent="0.33463797" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_2"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67514676"
+        tools:layout_editor_absoluteY="345dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="0dp"
+        android:layout_height="511dp"
+        android:id="@+id/vertical_1"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="130dp"
+        app:layout_constraintGuide_percent="0.33854166" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_2"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="261dp"
+        app:layout_constraintGuide_percent="0.6796875" />
+
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect1"
-        app:layout_constraintTop_toTopOf="@+id/connect2"
+        app:layout_constraintRight_toLeftOf="@+id/vertical_1"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_1"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="@+id/board"
+        app:layout_constraintLeft_toLeftOf="@+id/board"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:alpha="0"
-        app:layout_constraintRight_toLeftOf="@+id/connect2"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp" />
+        app:layout_constraintHorizontal_bias="0.46" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect2"
-        app:layout_constraintTop_toTopOf="@+id/board"
-        android:layout_marginTop="48dp"
-        android:alpha="0"
-        app:layout_constraintRight_toRightOf="@+id/board"
-        app:layout_constraintLeft_toLeftOf="@+id/board" />
+        app:layout_constraintTop_toTopOf="@+id/connect1"
+        app:layout_constraintBottom_toBottomOf="@+id/connect1"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_1"
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/vertical_2"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:alpha="0" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect3"
-        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@+id/connect2"
+        app:layout_constraintBottom_toBottomOf="@+id/connect2"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_2"
         app:layout_constraintRight_toRightOf="@+id/board"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintLeft_toLeftOf="@+id/board"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintTop_toTopOf="@+id/connect2" />
+        android:alpha="0" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect4"
         app:layout_constraintLeft_toLeftOf="@+id/connect1"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="@+id/board"
-        app:layout_constraintTop_toTopOf="@+id/board" />
+        app:layout_constraintRight_toRightOf="@+id/connect1"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_2"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:alpha="0" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect5"
-        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@+id/connect4"
+        app:layout_constraintBottom_toBottomOf="@+id/connect4"
+        app:layout_constraintLeft_toLeftOf="@+id/connect2"
         app:layout_constraintRight_toRightOf="@+id/connect2"
-        app:layout_constraintTop_toTopOf="@+id/connect4" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        android:alpha="0" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect6"
-        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@+id/connect5"
+        app:layout_constraintBottom_toBottomOf="@+id/connect5"
+        app:layout_constraintLeft_toLeftOf="@+id/connect3"
         app:layout_constraintRight_toRightOf="@+id/connect3"
-        app:layout_constraintTop_toTopOf="@+id/connect5" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="1.0"
+        android:alpha="0" />
 
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect7"
         app:layout_constraintLeft_toLeftOf="@+id/connect4"
-        android:alpha="0"
-        app:layout_constraintTop_toTopOf="@+id/connect8" />
+        app:layout_constraintRight_toRightOf="@+id/connect4"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_2"
+        app:layout_constraintBottom_toBottomOf="@+id/board"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0" />
+
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect8"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="@+id/board"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintRight_toRightOf="@+id/connect5" />
+        app:layout_constraintTop_toTopOf="@+id/connect7"
+        app:layout_constraintBottom_toBottomOf="@+id/connect7"
+        app:layout_constraintLeft_toLeftOf="@+id/connect5"
+        app:layout_constraintRight_toRightOf="@+id/connect5"
+        android:alpha="0" />
+
     <ImageView
-        android:layout_width="87dp"
+        android:layout_width="89dp"
         android:layout_height="96dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect9"
-        android:alpha="0"
+        app:layout_constraintTop_toTopOf="@+id/connect8"
+        app:layout_constraintBottom_toBottomOf="@+id/connect8"
+        app:layout_constraintLeft_toLeftOf="@+id/connect6"
         app:layout_constraintRight_toRightOf="@+id/connect6"
-        app:layout_constraintTop_toTopOf="@+id/connect8" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        android:alpha="0" />
+
 </android.support.constraint.ConstraintLayout>

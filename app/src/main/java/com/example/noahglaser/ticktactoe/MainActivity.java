@@ -3,7 +3,6 @@ package com.example.noahglaser.ticktactoe;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private Board board;
 
     private ImageView boardImage;
+
+    private boolean canMove = true;
 
     private ImageView[][] pieces = new ImageView[3][3];
 
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
                 int x = getXPosition(event.getX());
                 int y = getYPosition(event.getY());
-                move(x, y);
+                if (canMove) {
+                    move(x, y);
+                }
                 return false;
             }
         });
@@ -98,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public void move(int x, int y) {
 
+        if (!canMove) {
+            return;
+        }
+
+        canMove = false;
+
         if (!this.board.canMove(x, y)) {
             Toast.makeText(getApplicationContext(), "Space Taken", Toast.LENGTH_SHORT).show();
             return;
@@ -121,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
      * @param y
      */
     private void putPieceOnBoard(int imageId, final int x, final int y) {
-        this.boardImage.setClickable(false);
+
         this.pieces[x][y].setImageResource(imageId);
         this.pieces[x][y].setY(this.pieces[x][y].getY() - 100);
         this.pieces[x][y].setAlpha(1f);
@@ -129,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 pieces[x][y].setRotation(-180f);
-                boardImage.setClickable(true);
+                canMove = true;
             }
         });
 
@@ -150,9 +159,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (playerWon) {
+            this.boardImage.setClickable(false);
             Toast.makeText(getApplicationContext(), playerName + " WINS", Toast.LENGTH_SHORT).show();
             this.resetGame();
         } else if (board.noWinner()) {
+            canMove = false;
+            this.boardImage.setClickable(false);
             Toast.makeText(getApplicationContext(), "TIE GAME", Toast.LENGTH_SHORT).show();
             this.resetGame();
         } else {
@@ -176,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 board.reset();
                 Toast.makeText(getApplicationContext(), "NEW GAME STARTED", Toast.LENGTH_SHORT).show();
                 turns = 0;
+                canMove = true;
             }
         }, 2000);
     }
