@@ -19,30 +19,30 @@
         android:scaleType="fitXY" />
 
     <android.support.constraint.Guideline
-        android:layout_width="384dp"
+        android:layout_width="592dp"
         android:layout_height="wrap_content"
         android:id="@+id/horizontal_1"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="171dp"
+        tools:layout_editor_absoluteY="104dp"
         tools:layout_editor_absoluteX="0dp"
         app:layout_constraintGuide_percent="0.33463797" />
 
     <android.support.constraint.Guideline
-        android:layout_width="384dp"
+        android:layout_width="592dp"
         android:layout_height="wrap_content"
         android:id="@+id/horizontal_2"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.67514676"
-        tools:layout_editor_absoluteY="345dp"
+        tools:layout_editor_absoluteY="210dp"
         tools:layout_editor_absoluteX="0dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="0dp"
-        android:layout_height="511dp"
+        android:layout_height="311dp"
         android:id="@+id/vertical_1"
         android:orientation="vertical"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteX="200dp"
         app:layout_constraintGuide_percent="0.33854166" />
 
     <android.support.constraint.Guideline
@@ -51,12 +51,12 @@
         android:id="@+id/vertical_2"
         android:orientation="vertical"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteX="402dp"
         app:layout_constraintGuide_percent="0.6796875" />
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect1"
         app:layout_constraintRight_toLeftOf="@+id/vertical_1"
@@ -69,12 +69,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:alpha="0"
-        app:layout_constraintHorizontal_bias="0.46" />
+        android:alpha="0" />
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect2"
         app:layout_constraintTop_toTopOf="@+id/connect1"
@@ -90,7 +89,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect3"
         app:layout_constraintTop_toTopOf="@+id/connect2"
@@ -105,7 +104,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="match_parent"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect4"
         app:layout_constraintLeft_toLeftOf="@+id/connect1"
@@ -119,7 +118,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect5"
         app:layout_constraintTop_toTopOf="@+id/connect4"
@@ -132,7 +131,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect6"
         app:layout_constraintTop_toTopOf="@+id/connect5"
@@ -145,7 +144,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect7"
         app:layout_constraintLeft_toLeftOf="@+id/connect4"
@@ -158,7 +157,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect8"
         app:layout_constraintTop_toTopOf="@+id/connect7"
@@ -169,7 +168,7 @@
 
     <ImageView
         android:layout_width="89dp"
-        android:layout_height="96dp"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/red"
         android:id="@+id/connect9"
         app:layout_constraintTop_toTopOf="@+id/connect8"
