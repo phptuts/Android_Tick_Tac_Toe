@@ -3,13 +3,14 @@ package com.example.noahglaser.ticktactoe;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private Player player1;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity  {
         this.board = new Board();
 
         if (savedInstanceState != null) {
+            this.turns = savedInstanceState.getInt("turns");
             player1 = savedInstanceState.getParcelable("player1");
             player2 = savedInstanceState.getParcelable("player2");
             Player[] spacesSaved = (Player[]) savedInstanceState.getParcelableArray("spaces");
@@ -71,8 +73,7 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 }
             }
-        }
-        else {
+        } else {
             this.player1 = new Player(R.drawable.red);
             this.player2 = new Player(R.drawable.yellow);
         }
@@ -83,13 +84,15 @@ public class MainActivity extends AppCompatActivity  {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putParcelableArray("spaces",this.board.createArrayOfPlayerSpaces());
+        outState.putParcelableArray("spaces", this.board.createArrayOfPlayerSpaces());
         outState.putParcelable("player1", this.player1);
         outState.putParcelable("player2", this.player2);
+        outState.putInt("turns", this.turns);
     }
 
     /**
      * Determines the x position of the square the user clicked on
+     *
      * @param x
      * @return
      */
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity  {
 
     /**
      * Determines the y position of the square the user clicked on
+     *
      * @param y
      * @return
      */
@@ -153,6 +157,7 @@ public class MainActivity extends AppCompatActivity  {
 
     /**
      * Puts the piece on the board
+     *
      * @param imageId
      * @param x
      * @param y
@@ -162,13 +167,17 @@ public class MainActivity extends AppCompatActivity  {
         this.pieces[x][y].setImageResource(imageId);
         this.pieces[x][y].setY(this.pieces[x][y].getY() - 100);
         this.pieces[x][y].setAlpha(1f);
-        this.pieces[x][y].animate().translationYBy(100f).rotation(180).setDuration(1500).withEndAction(new Runnable() {
-            @Override
-            public void run() {
-                pieces[x][y].setRotation(-180f);
-                canMove = true;
-            }
-        });
+        this.pieces[x][y].animate()
+                .translationYBy(100f)
+                .rotation(180)
+                .setDuration(1500)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        pieces[x][y].setRotation(-180f);
+                        canMove = true;
+                    }
+                });
 
     }
 

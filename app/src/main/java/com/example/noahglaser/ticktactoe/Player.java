@@ -6,8 +6,14 @@ import android.os.Parcelable;
 
 public class Player implements Parcelable {
 
+    /**
+     * The image id the drawable folder
+     */
     private int imageId;
 
+    /**
+     * Create a player with the parcel
+     */
     public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>() {
         public Player createFromParcel(Parcel in) {
             return new Player(in);
@@ -18,10 +24,18 @@ public class Player implements Parcelable {
         }
     };
 
+    /**
+     * Normal Constructor
+     * @param imageId
+     */
     public Player(int imageId) {
         this.imageId = imageId;
     }
 
+    /**
+     * Used for creating Player in the parcel stuff
+     * @param in
+     */
     private Player(Parcel in) {
         imageId = in.readInt();
     }
