@@ -3,7 +3,6 @@ package com.example.noahglaser.ticktactoe;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -141,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!this.board.canMove(x, y)) {
             Toast.makeText(getApplicationContext(), "Space Taken", Toast.LENGTH_SHORT).show();
+            canMove = true;
             return;
         }
 
